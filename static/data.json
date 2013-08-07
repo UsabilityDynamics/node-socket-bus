@@ -1,0 +1,40 @@
+{
+    "project": {
+        "name": "WebSocket MQ",
+        "description": "",
+        "version": "0.0.1",
+        "url": "https://github.com/UsabilityDynamics/websocket-mq/",
+        "logo": "http://a3d72a45d111006ec192-ec5b80a12b0b09b4d52373336afb4254.r80.cf1.rackcdn.com/usability-dynamics.png"
+    },
+    "files": {
+        "lib/index.js": {
+            "name": "lib/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {},
+    "classitems": [
+        {
+            "file": "lib/index.js",
+            "line": 1,
+            "description": "Run Coverage Tests / Module",
+            "author": "potanin@UD",
+            "date": "6/18/13",
+            "class": ""
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: date",
+            "line": " lib/index.js:1"
+        },
+        {
+            "message": "Missing item type\nRun Coverage Tests / Module",
+            "line": " lib/index.js:1"
+        }
+    ]
+}

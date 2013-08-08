@@ -20,11 +20,11 @@ module.exports = {
         host: 'localhost'
       });
 
-
       server.on( 'listening', function( error, server ) {
         // console.log( this.event, error, typeof server );
 
         var client = WebSocket.createConnection({
+          port: 80123,
           path: '/',
           host: 'localhost'
         });

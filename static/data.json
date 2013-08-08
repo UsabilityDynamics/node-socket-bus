@@ -7,8 +7,113 @@
         "logo": "http://a3d72a45d111006ec192-ec5b80a12b0b09b4d52373336afb4254.r80.cf1.rackcdn.com/usability-dynamics.png"
     },
     "files": {
+        "lib/plugins/queue.js": {
+            "name": "lib/plugins/queue.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/plugins/round-robin.js": {
+            "name": "lib/plugins/round-robin.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/pub-emitter.js": {
+            "name": "lib/sockets/pub-emitter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/pub.js": {
+            "name": "lib/sockets/pub.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/pull.js": {
+            "name": "lib/sockets/pull.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/push.js": {
+            "name": "lib/sockets/push.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/rep.js": {
+            "name": "lib/sockets/rep.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/req.js": {
+            "name": "lib/sockets/req.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/sock.js": {
+            "name": "lib/sockets/sock.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/sub-emitter.js": {
+            "name": "lib/sockets/sub-emitter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/sockets/sub.js": {
+            "name": "lib/sockets/sub.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/codecs.js": {
+            "name": "lib/codecs.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "lib/index.js": {
             "name": "lib/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/message.js": {
+            "name": "lib/message.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/parser.js": {
+            "name": "lib/parser.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/utils.js": {
+            "name": "lib/utils.js",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -19,22 +124,1727 @@
     "classes": {},
     "classitems": [
         {
+            "file": "lib/plugins/queue.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/queue.js",
+            "line": 8,
+            "description": "Queue plugin.\n\nProvides an `.enqueue()` method to the `sock`. Messages\npassed to `enqueue` will be buffered until the next\n`connect` event is emitted.\n\nEmits:\n\n - `drop` (msg) when a message is dropped\n - `flush` (msgs) when the queue is flushed",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/queue.js",
+            "line": 29,
+            "description": "Message buffer.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/queue.js",
+            "line": 35,
+            "description": "Flush `buf` on `connect`.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/queue.js",
+            "line": 52,
+            "description": "Pushes `msg` into `buf`.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/queue.js",
+            "line": 62,
+            "description": "Drop the given `msg`.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/round-robin.js",
+            "line": 2,
+            "description": "Deps.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/round-robin.js",
+            "line": 8,
+            "description": "Round-robin plugin.\n\nProvides a `send` method which will\nwrite the `msg` to all connected peers.",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/round-robin.js",
+            "line": 24,
+            "description": "Bind callback to `sock`.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/round-robin.js",
+            "line": 30,
+            "description": "Initialize counter.",
+            "class": ""
+        },
+        {
+            "file": "lib/plugins/round-robin.js",
+            "line": 36,
+            "description": "Sends `msg` to all connected peers round-robin.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub-emitter.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub-emitter.js",
+            "line": 8,
+            "description": "Expose `SubPubEmitterSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub-emitter.js",
+            "line": 14,
+            "description": "Initialzie a new `PubEmitterSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub.js",
+            "line": 9,
+            "description": "Expose `PubSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub.js",
+            "line": 15,
+            "description": "Initialize a new `PubSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub.js",
+            "line": 25,
+            "description": "Inherits from `Socket.prototype`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pub.js",
+            "line": 31,
+            "description": "Send `msg` to all established peers.",
+            "params": [
+                {
+                    "name": "msg",
+                    "description": "",
+                    "type": "Mixed"
+                }
+            ],
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pull.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pull.js",
+            "line": 8,
+            "description": "Expose `PullSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pull.js",
+            "line": 14,
+            "description": "Initialize a new `PullSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pull.js",
+            "line": 25,
+            "description": "Inherits from `Socket.prototype`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/pull.js",
+            "line": 31,
+            "description": "Pull sockets should not send messages.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/push.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/push.js",
+            "line": 10,
+            "description": "Expose `PushSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/push.js",
+            "line": 16,
+            "description": "Initialize a new `PushSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/push.js",
+            "line": 28,
+            "description": "Inherits from `Socket.prototype`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/rep.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/rep.js",
+            "line": 9,
+            "description": "Expose `RepSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/rep.js",
+            "line": 15,
+            "description": "Initialize a new `RepSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/rep.js",
+            "line": 25,
+            "description": "Inherits from `Socket.prototype`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/rep.js",
+            "line": 31,
+            "description": "Incoming.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "net.Socket"
+                }
+            ],
+            "return": {
+                "description": "closure(msg, mulitpart)",
+                "type": "Function"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/req.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/req.js",
+            "line": 11,
+            "description": "Expose `ReqSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/req.js",
+            "line": 17,
+            "description": "Initialize a new `ReqSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/req.js",
+            "line": 32,
+            "description": "Inherits from `Socket.prototype`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/req.js",
+            "line": 38,
+            "description": "Return a message id.",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/req.js",
+            "line": 49,
+            "description": "Emits the \"message\" event with all message parts\nafter the null delimeter part.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "net.Socket"
+                }
+            ],
+            "return": {
+                "description": "closure(msg, multipart)",
+                "type": "Function"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/req.js",
+            "line": 70,
+            "description": "Sends `msg` to the remote peers. Appends\nthe null message part prior to sending.",
+            "params": [
+                {
+                    "name": "msg",
+                    "description": "",
+                    "type": "Mixed"
+                }
+            ],
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 15,
+            "description": "Errors to ignore.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 29,
+            "description": "Expose `Socket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 35,
+            "description": "Initialize a new `Socket`.\n\nA \"Socket\" encapsulates the ability of being\nthe \"client\" or the \"server\" depending on\nwhether `connect()` or `bind()` was called.\n\nUpon sending and recieving messages, the correct codec\nset by `format` will be applied. Both sides must elect\nthe same codec, or all hell will break loose on the app.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 62,
+            "description": "Inherit from `Emitter.prototype`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 68,
+            "description": "Make it configurable `.set()` etc.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 74,
+            "description": "Use the given `plugin`.",
+            "params": [
+                {
+                    "name": "plugin",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 86,
+            "description": "Set format to `type`.",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Socket"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 102,
+            "description": "Creates a new `Message` and writes `data` using the\n`codec` set already by `format`.\n\nThis will only work for single part messages or multi\npart message that all use the same codec. If you need\notherwise, use the `Message` constructor to craft\nyour own message.",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Buffer"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 131,
+            "description": "Close all open underlying sockets.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 144,
+            "description": "Close the socket.\n\nDelegates to the server or clients\nbased on the socket `type`.",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 161,
+            "description": "Close the server.",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 175,
+            "description": "Return the server address.",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 189,
+            "description": "Remove `sock`.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "Socket"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 203,
+            "description": "Add `sock`.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "Socket"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 218,
+            "description": "Handle `sock` errors.\n\nEmits:\n\n - `error` (err) when the error is not ignored\n - `ignored error` (err) when the error is ignored\n - `socket error` (err) regardless of ignoring",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "Socket"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 243,
+            "description": "Handles framed messages emitted from the parser, by\ndefault it will go ahead and emit the \"message\" events on\nthe socket. However, if the \"higher level\" socket needs\nto hook into the messages before they are emitted, it\nshould override this method and take care of everything\nit self, including emitted the \"message\" event.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "net.Socket"
+                }
+            ],
+            "return": {
+                "description": "closure(msg, mulitpart)",
+                "type": "Function"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 268,
+            "description": "Connect to `port` at `host` and invoke `fn()`.\n\nDefaults `host` to localhost.",
+            "params": [
+                {
+                    "name": "port",
+                    "description": "",
+                    "type": "Number|String"
+                },
+                {
+                    "name": "host",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Socket"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 328,
+            "description": "Handle connection.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "Socket"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sock.js",
+            "line": 349,
+            "description": "Bind to `port` at `host` and invoke `fn()`.\n\nDefaults `host` to INADDR_ANY.\n\nEmits:\n\n - `connection` when a client connects\n - `disconnect` when a client disconnects\n - `bind` when bound and listening",
+            "params": [
+                {
+                    "name": "port",
+                    "description": "",
+                    "type": "Number|String"
+                },
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Socket"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub-emitter.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub-emitter.js",
+            "line": 8,
+            "description": "Expose `SubEmitterSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub-emitter.js",
+            "line": 14,
+            "description": "Initialzie a new `SubEmitterSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub-emitter.js",
+            "line": 30,
+            "description": "Message handler.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "net.Socket"
+                }
+            ],
+            "return": {
+                "description": "closure(msg, mulitpart)",
+                "type": "Function"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub-emitter.js",
+            "line": 60,
+            "description": "Subscribe to `event` and invoke the given callback `fn`.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "self",
+                "type": "SubEmitterSocket"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 10,
+            "description": "Expose `SubSocket`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 16,
+            "description": "Initialize a new `SubSocket`.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 27,
+            "description": "Inherits from `Socket.prototype`.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 33,
+            "description": "Check if this socket has subscriptions.",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 44,
+            "description": "Check if any subscriptions match `topic`.",
+            "params": [
+                {
+                    "name": "topic",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 61,
+            "description": "Message handler.",
+            "params": [
+                {
+                    "name": "sock",
+                    "description": "",
+                    "type": "net.Socket"
+                }
+            ],
+            "return": {
+                "description": "closure(msg, mulitpart)",
+                "type": "Function"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 87,
+            "description": "Subscribe with the given `re`.",
+            "params": [
+                {
+                    "name": "re",
+                    "description": "",
+                    "type": "RegExp|String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RegExp"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 101,
+            "description": "Clear current subscriptions.",
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 111,
+            "description": "Subscribers should not send messages.",
+            "class": ""
+        },
+        {
+            "file": "lib/sockets/sub.js",
+            "line": 119,
+            "description": "Convert `str` to a `RegExp`.",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "RegExp"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 2,
+            "description": "Current id.",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 8,
+            "description": "Max codecs.",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 14,
+            "description": "Name map.",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 20,
+            "description": "Define codec `name` with encode and decode functions.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "fns",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 44,
+            "description": "Get codec by `id`.",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 56,
+            "description": "Get codec by `name`.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "api": "public",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 68,
+            "description": "Binary.",
+            "class": ""
+        },
+        {
+            "file": "lib/codecs.js",
+            "line": 77,
+            "description": "JSON.",
+            "class": ""
+        },
+        {
             "file": "lib/index.js",
             "line": 1,
-            "description": "Run Coverage Tests / Module",
-            "author": "potanin@UD",
-            "date": "6/18/13",
+            "type": "{*}",
+            "class": ""
+        },
+        {
+            "file": "lib/index.js",
+            "line": 106,
+            "description": "WebSocket MQ Server Properties.",
+            "class": ""
+        },
+        {
+            "file": "lib/index.js",
+            "line": 125,
+            "description": "WebSocket MQ Constructor Properties.",
+            "class": ""
+        },
+        {
+            "file": "lib/message.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/message.js",
+            "line": 8,
+            "description": "Expose `Message`.",
+            "class": ""
+        },
+        {
+            "file": "lib/message.js",
+            "line": 14,
+            "description": "Initialize a new `Message`.\n\nThe \"Message\" encapsulates packing messages and\nmaintaining state between multiple writes in the\ncase of multipart messages.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/message.js",
+            "line": 30,
+            "description": "Appends a new message to the buffer.",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "String|Buffer"
+                },
+                {
+                    "name": "meta",
+                    "description": "",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Message"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/message.js",
+            "line": 46,
+            "description": "Returns buffer of the single message or a new\nbuffer containtain all written messages (multipart).",
+            "return": {
+                "description": "",
+                "type": "Buffer"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/message.js",
+            "line": 70,
+            "description": "Pack `msg`.\n\nTODO: zero-copy",
+            "params": [
+                {
+                    "name": "msg",
+                    "description": "",
+                    "type": "String|Buffer"
+                },
+                {
+                    "name": "meta",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Buffer"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 8,
+            "description": "Expose `Parser`.",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 14,
+            "description": "Initialize a new `Parser`.\n\nThe \"Parser\" encapsulates message framing and\napplying of codecs for each message received.",
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 31,
+            "description": "Temporary stub. Calling context should impement this\nin order to receive the parsed message(s).",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "Mixed"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 41,
+            "description": "Frame the given `chunk`.",
+            "params": [
+                {
+                    "name": "chunk",
+                    "description": "",
+                    "type": "Buffer"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 53,
+            "description": "Frame headers.",
+            "params": [
+                {
+                    "name": "chunk",
+                    "description": "",
+                    "type": "Buffer"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 84,
+            "description": "Frame body.",
+            "params": [
+                {
+                    "name": "chunk",
+                    "description": "",
+                    "type": "Buffer"
+                }
+            ],
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 114,
+            "description": "Parsers out `meta` and `length` header octets.",
+            "params": [
+                {
+                    "name": "buf",
+                    "description": "",
+                    "type": "Buffer"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 139,
+            "description": "Parses out multipart messages.",
+            "params": [
+                {
+                    "name": "buf",
+                    "description": "",
+                    "type": "Buffer"
+                }
+            ],
+            "return": {
+                "description": "multipart",
+                "type": "Boolean"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 165,
+            "description": "Apply the codec `type` to `msg`.",
+            "params": [
+                {
+                    "name": "msg",
+                    "description": "",
+                    "type": "Buffer"
+                },
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "decoded message",
+                "type": "Mixed"
+            },
+            "api": "private",
+            "class": ""
+        },
+        {
+            "file": "lib/parser.js",
+            "line": 179,
+            "description": "Set/resets to the default state.",
+            "class": ""
+        },
+        {
+            "file": "lib/utils.js",
+            "line": 2,
+            "description": "Slice helper.",
+            "api": "private",
+            "params": [
+                {
+                    "name": "args",
+                    "description": "",
+                    "type": "Arguments"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
             "class": ""
         }
     ],
     "warnings": [
         {
-            "message": "unknown tag: date",
+            "message": "unknown tag: api",
+            "line": " lib/plugins/queue.js:8"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/plugins/round-robin.js:8"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/pub-emitter.js:14"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/pub.js:15"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/pub.js:31"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/pull.js:14"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/push.js:16"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/rep.js:15"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/rep.js:31"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/req.js:17"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/req.js:38"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/req.js:49"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/req.js:70"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:35"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:74"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:86"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:102"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:131"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:144"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:161"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:175"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:189"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:203"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:218"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:243"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:268"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:328"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sock.js:349"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub-emitter.js:14"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub-emitter.js:30"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub-emitter.js:60"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub.js:16"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub.js:33"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub.js:44"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub.js:61"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub.js:87"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub.js:101"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/sockets/sub.js:119"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/codecs.js:20"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/codecs.js:44"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/codecs.js:56"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/message.js:14"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/message.js:30"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/message.js:46"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/message.js:70"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:14"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:31"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:41"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:53"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:84"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:114"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:139"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/parser.js:165"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " lib/utils.js:2"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/plugins/queue.js:2"
+        },
+        {
+            "message": "Missing item type\nQueue plugin.\n\nProvides an `.enqueue()` method to the `sock`. Messages\npassed to `enqueue` will be buffered until the next\n`connect` event is emitted.\n\nEmits:\n\n - `drop` (msg) when a message is dropped\n - `flush` (msgs) when the queue is flushed",
+            "line": " lib/plugins/queue.js:8"
+        },
+        {
+            "message": "Missing item type\nMessage buffer.",
+            "line": " lib/plugins/queue.js:29"
+        },
+        {
+            "message": "Missing item type\nFlush `buf` on `connect`.",
+            "line": " lib/plugins/queue.js:35"
+        },
+        {
+            "message": "Missing item type\nPushes `msg` into `buf`.",
+            "line": " lib/plugins/queue.js:52"
+        },
+        {
+            "message": "Missing item type\nDrop the given `msg`.",
+            "line": " lib/plugins/queue.js:62"
+        },
+        {
+            "message": "Missing item type\nDeps.",
+            "line": " lib/plugins/round-robin.js:2"
+        },
+        {
+            "message": "Missing item type\nRound-robin plugin.\n\nProvides a `send` method which will\nwrite the `msg` to all connected peers.",
+            "line": " lib/plugins/round-robin.js:8"
+        },
+        {
+            "message": "Missing item type\nBind callback to `sock`.",
+            "line": " lib/plugins/round-robin.js:24"
+        },
+        {
+            "message": "Missing item type\nInitialize counter.",
+            "line": " lib/plugins/round-robin.js:30"
+        },
+        {
+            "message": "Missing item type\nSends `msg` to all connected peers round-robin.",
+            "line": " lib/plugins/round-robin.js:36"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/pub-emitter.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `SubPubEmitterSocket`.",
+            "line": " lib/sockets/pub-emitter.js:8"
+        },
+        {
+            "message": "Missing item type\nInitialzie a new `PubEmitterSocket`.",
+            "line": " lib/sockets/pub-emitter.js:14"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/pub.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `PubSocket`.",
+            "line": " lib/sockets/pub.js:9"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `PubSocket`.",
+            "line": " lib/sockets/pub.js:15"
+        },
+        {
+            "message": "Missing item type\nInherits from `Socket.prototype`.",
+            "line": " lib/sockets/pub.js:25"
+        },
+        {
+            "message": "Missing item type\nSend `msg` to all established peers.",
+            "line": " lib/sockets/pub.js:31"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/pull.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `PullSocket`.",
+            "line": " lib/sockets/pull.js:8"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `PullSocket`.",
+            "line": " lib/sockets/pull.js:14"
+        },
+        {
+            "message": "Missing item type\nInherits from `Socket.prototype`.",
+            "line": " lib/sockets/pull.js:25"
+        },
+        {
+            "message": "Missing item type\nPull sockets should not send messages.",
+            "line": " lib/sockets/pull.js:31"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/push.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `PushSocket`.",
+            "line": " lib/sockets/push.js:10"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `PushSocket`.",
+            "line": " lib/sockets/push.js:16"
+        },
+        {
+            "message": "Missing item type\nInherits from `Socket.prototype`.",
+            "line": " lib/sockets/push.js:28"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/rep.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `RepSocket`.",
+            "line": " lib/sockets/rep.js:9"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `RepSocket`.",
+            "line": " lib/sockets/rep.js:15"
+        },
+        {
+            "message": "Missing item type\nInherits from `Socket.prototype`.",
+            "line": " lib/sockets/rep.js:25"
+        },
+        {
+            "message": "Missing item type\nIncoming.",
+            "line": " lib/sockets/rep.js:31"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/req.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `ReqSocket`.",
+            "line": " lib/sockets/req.js:11"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `ReqSocket`.",
+            "line": " lib/sockets/req.js:17"
+        },
+        {
+            "message": "Missing item type\nInherits from `Socket.prototype`.",
+            "line": " lib/sockets/req.js:32"
+        },
+        {
+            "message": "Missing item type\nReturn a message id.",
+            "line": " lib/sockets/req.js:38"
+        },
+        {
+            "message": "Missing item type\nEmits the \"message\" event with all message parts\nafter the null delimeter part.",
+            "line": " lib/sockets/req.js:49"
+        },
+        {
+            "message": "Missing item type\nSends `msg` to the remote peers. Appends\nthe null message part prior to sending.",
+            "line": " lib/sockets/req.js:70"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/sock.js:2"
+        },
+        {
+            "message": "Missing item type\nErrors to ignore.",
+            "line": " lib/sockets/sock.js:15"
+        },
+        {
+            "message": "Missing item type\nExpose `Socket`.",
+            "line": " lib/sockets/sock.js:29"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `Socket`.\n\nA \"Socket\" encapsulates the ability of being\nthe \"client\" or the \"server\" depending on\nwhether `connect()` or `bind()` was called.\n\nUpon sending and recieving messages, the correct codec\nset by `format` will be applied. Both sides must elect\nthe same codec, or all hell will break loose on the app.",
+            "line": " lib/sockets/sock.js:35"
+        },
+        {
+            "message": "Missing item type\nInherit from `Emitter.prototype`.",
+            "line": " lib/sockets/sock.js:62"
+        },
+        {
+            "message": "Missing item type\nMake it configurable `.set()` etc.",
+            "line": " lib/sockets/sock.js:68"
+        },
+        {
+            "message": "Missing item type\nUse the given `plugin`.",
+            "line": " lib/sockets/sock.js:74"
+        },
+        {
+            "message": "Missing item type\nSet format to `type`.",
+            "line": " lib/sockets/sock.js:86"
+        },
+        {
+            "message": "Missing item type\nCreates a new `Message` and writes `data` using the\n`codec` set already by `format`.\n\nThis will only work for single part messages or multi\npart message that all use the same codec. If you need\notherwise, use the `Message` constructor to craft\nyour own message.",
+            "line": " lib/sockets/sock.js:102"
+        },
+        {
+            "message": "Missing item type\nClose all open underlying sockets.",
+            "line": " lib/sockets/sock.js:131"
+        },
+        {
+            "message": "Missing item type\nClose the socket.\n\nDelegates to the server or clients\nbased on the socket `type`.",
+            "line": " lib/sockets/sock.js:144"
+        },
+        {
+            "message": "Missing item type\nClose the server.",
+            "line": " lib/sockets/sock.js:161"
+        },
+        {
+            "message": "Missing item type\nReturn the server address.",
+            "line": " lib/sockets/sock.js:175"
+        },
+        {
+            "message": "Missing item type\nRemove `sock`.",
+            "line": " lib/sockets/sock.js:189"
+        },
+        {
+            "message": "Missing item type\nAdd `sock`.",
+            "line": " lib/sockets/sock.js:203"
+        },
+        {
+            "message": "Missing item type\nHandle `sock` errors.\n\nEmits:\n\n - `error` (err) when the error is not ignored\n - `ignored error` (err) when the error is ignored\n - `socket error` (err) regardless of ignoring",
+            "line": " lib/sockets/sock.js:218"
+        },
+        {
+            "message": "Missing item type\nHandles framed messages emitted from the parser, by\ndefault it will go ahead and emit the \"message\" events on\nthe socket. However, if the \"higher level\" socket needs\nto hook into the messages before they are emitted, it\nshould override this method and take care of everything\nit self, including emitted the \"message\" event.",
+            "line": " lib/sockets/sock.js:243"
+        },
+        {
+            "message": "Missing item type\nConnect to `port` at `host` and invoke `fn()`.\n\nDefaults `host` to localhost.",
+            "line": " lib/sockets/sock.js:268"
+        },
+        {
+            "message": "Missing item type\nHandle connection.",
+            "line": " lib/sockets/sock.js:328"
+        },
+        {
+            "message": "Missing item type\nBind to `port` at `host` and invoke `fn()`.\n\nDefaults `host` to INADDR_ANY.\n\nEmits:\n\n - `connection` when a client connects\n - `disconnect` when a client disconnects\n - `bind` when bound and listening",
+            "line": " lib/sockets/sock.js:349"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/sub-emitter.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `SubEmitterSocket`.",
+            "line": " lib/sockets/sub-emitter.js:8"
+        },
+        {
+            "message": "Missing item type\nInitialzie a new `SubEmitterSocket`.",
+            "line": " lib/sockets/sub-emitter.js:14"
+        },
+        {
+            "message": "Missing item type\nMessage handler.",
+            "line": " lib/sockets/sub-emitter.js:30"
+        },
+        {
+            "message": "Missing item type\nSubscribe to `event` and invoke the given callback `fn`.",
+            "line": " lib/sockets/sub-emitter.js:60"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/sockets/sub.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `SubSocket`.",
+            "line": " lib/sockets/sub.js:10"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `SubSocket`.",
+            "line": " lib/sockets/sub.js:16"
+        },
+        {
+            "message": "Missing item type\nInherits from `Socket.prototype`.",
+            "line": " lib/sockets/sub.js:27"
+        },
+        {
+            "message": "Missing item type\nCheck if this socket has subscriptions.",
+            "line": " lib/sockets/sub.js:33"
+        },
+        {
+            "message": "Missing item type\nCheck if any subscriptions match `topic`.",
+            "line": " lib/sockets/sub.js:44"
+        },
+        {
+            "message": "Missing item type\nMessage handler.",
+            "line": " lib/sockets/sub.js:61"
+        },
+        {
+            "message": "Missing item type\nSubscribe with the given `re`.",
+            "line": " lib/sockets/sub.js:87"
+        },
+        {
+            "message": "Missing item type\nClear current subscriptions.",
+            "line": " lib/sockets/sub.js:101"
+        },
+        {
+            "message": "Missing item type\nSubscribers should not send messages.",
+            "line": " lib/sockets/sub.js:111"
+        },
+        {
+            "message": "Missing item type\nConvert `str` to a `RegExp`.",
+            "line": " lib/sockets/sub.js:119"
+        },
+        {
+            "message": "Missing item type\nCurrent id.",
+            "line": " lib/codecs.js:2"
+        },
+        {
+            "message": "Missing item type\nMax codecs.",
+            "line": " lib/codecs.js:8"
+        },
+        {
+            "message": "Missing item type\nName map.",
+            "line": " lib/codecs.js:14"
+        },
+        {
+            "message": "Missing item type\nDefine codec `name` with encode and decode functions.",
+            "line": " lib/codecs.js:20"
+        },
+        {
+            "message": "Missing item type\nGet codec by `id`.",
+            "line": " lib/codecs.js:44"
+        },
+        {
+            "message": "Missing item type\nGet codec by `name`.",
+            "line": " lib/codecs.js:56"
+        },
+        {
+            "message": "Missing item type\nBinary.",
+            "line": " lib/codecs.js:68"
+        },
+        {
+            "message": "Missing item type\nJSON.",
+            "line": " lib/codecs.js:77"
+        },
+        {
+            "message": "Missing item type",
             "line": " lib/index.js:1"
         },
         {
-            "message": "Missing item type\nRun Coverage Tests / Module",
-            "line": " lib/index.js:1"
+            "message": "Missing item type\nWebSocket MQ Server Properties.",
+            "line": " lib/index.js:106"
+        },
+        {
+            "message": "Missing item type\nWebSocket MQ Constructor Properties.",
+            "line": " lib/index.js:125"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/message.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `Message`.",
+            "line": " lib/message.js:8"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `Message`.\n\nThe \"Message\" encapsulates packing messages and\nmaintaining state between multiple writes in the\ncase of multipart messages.",
+            "line": " lib/message.js:14"
+        },
+        {
+            "message": "Missing item type\nAppends a new message to the buffer.",
+            "line": " lib/message.js:30"
+        },
+        {
+            "message": "Missing item type\nReturns buffer of the single message or a new\nbuffer containtain all written messages (multipart).",
+            "line": " lib/message.js:46"
+        },
+        {
+            "message": "Missing item type\nPack `msg`.\n\nTODO: zero-copy",
+            "line": " lib/message.js:70"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " lib/parser.js:2"
+        },
+        {
+            "message": "Missing item type\nExpose `Parser`.",
+            "line": " lib/parser.js:8"
+        },
+        {
+            "message": "Missing item type\nInitialize a new `Parser`.\n\nThe \"Parser\" encapsulates message framing and\napplying of codecs for each message received.",
+            "line": " lib/parser.js:14"
+        },
+        {
+            "message": "Missing item type\nTemporary stub. Calling context should impement this\nin order to receive the parsed message(s).",
+            "line": " lib/parser.js:31"
+        },
+        {
+            "message": "Missing item type\nFrame the given `chunk`.",
+            "line": " lib/parser.js:41"
+        },
+        {
+            "message": "Missing item type\nFrame headers.",
+            "line": " lib/parser.js:53"
+        },
+        {
+            "message": "Missing item type\nFrame body.",
+            "line": " lib/parser.js:84"
+        },
+        {
+            "message": "Missing item type\nParsers out `meta` and `length` header octets.",
+            "line": " lib/parser.js:114"
+        },
+        {
+            "message": "Missing item type\nParses out multipart messages.",
+            "line": " lib/parser.js:139"
+        },
+        {
+            "message": "Missing item type\nApply the codec `type` to `msg`.",
+            "line": " lib/parser.js:165"
+        },
+        {
+            "message": "Missing item type\nSet/resets to the default state.",
+            "line": " lib/parser.js:179"
+        },
+        {
+            "message": "Missing item type\nSlice helper.",
+            "line": " lib/utils.js:2"
         }
     ]
 }

@@ -85,14 +85,241 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * Run Coverage Tests / Module
  *
- * @author potanin@UD
- * @date 6/18/13
+ * @type {*}
  */
-module.exports = process.env.APP_COVERAGE ? require( &#x27;./static/lib-cov/abstract&#x27; ) : require( &#x27;./lib/abstract&#x27; );
+function WebSocket( settings, cb ) {
 
+  // Make sure context is correct otherwise we could screw up the global scope.
+  if (!(this instanceof WebSocket)) {
+    return new WebSocket( options, cb );
+  }
 
+  var self         = this;
+  var validation   = require( &#x27;object-validation&#x27; );
+  var msgpack      = require( &#x27;msgpack&#x27; );
+  var ws           = require( &#x27;ws&#x27; );
+  var extend       = require( &#x27;extend&#x27; );
+
+  // Mixin Settings and EventEmitter
+  require( &#x27;object-settings&#x27; ).mixin( this );
+
+  // Configure instance.
+  this.set({
+    settings: settings,
+    identity: String( process.pid ),
+    retry: 100,
+    max_retry: 5000
+  });
+
+  // Start WebSocket Server.
+  this.Server = new ws.Server({
+    host: this.get( &#x27;settings.host&#x27;, &#x27;localhost&#x27; ),
+    port: this.get( &#x27;settings.port&#x27;, 92000 ),
+    path: this.get( &#x27;settings.port&#x27;, &#x27;/&#x27; )
+  });
+
+  require( &#x27;object-emitter&#x27; ).mixin( this );
+
+  // Handle Server Errors.
+  this.Server.on( &#x27;error&#x27;, function error( error ) {
+
+    switch( error.code ) {
+
+      case &#x27;EADDRINUSE&#x27;: {
+        self.emit( &#x27;error.address_in_use&#x27;, new Error( &#x27;WebSocket port already used.&#x27; ) );
+      } break;
+
+    }
+
+  });
+
+  // Handle new Connections
+  this.Server.on( &#x27;connection&#x27;, function connection( socket ) {
+
+    // Set Unique SessionID
+    socket.session = {
+      key: socket.upgradeReq.headers[ &#x27;sec-websocket-key&#x27; ],
+      sid: Math.random().toString( 36 ).substring( 2 ),
+      headers: socket.upgradeReq.headers,
+      method: socket.upgradeReq.method,
+      path: socket.upgradeReq.url
+    }
+
+    socket.send( &#x27;{&quot;event&quot;:&quot;handshake&quot;,&quot;sid&quot;:&quot;&#x27; + socket.session.sid + &#x27;&quot;}&#x27; );
+
+    // Handle Incoming Messages.
+    socket.on( &#x27;message&#x27;, function incoming( message ) {
+
+      // Parse to JSON
+      message = msgpack.unpack( message )
+
+      // Add properties.
+      _extend( message, {
+        id: socket.session.id,
+        session: socket.session,
+        event: &#x27;string&#x27; === typeof message ? message : message.event,
+        data: message
+      });
+
+      // Expose.
+      Instance.emit( &#x27;server.message&#x27;, null, message );
+
+    });
+
+    self.emit( &#x27;connection&#x27;, null );
+
+  });
+
+  // Server Bound.
+  this.Server.on( &#x27;listening&#x27;, function listening() {
+
+    // Update / Verify Settings.
+    self.set( &#x27;settings&#x27;, {
+      host: this._server.address().address,
+      port: this._server.address().port
+    });
+
+    self.emit( &#x27;listening&#x27;, null );
+
+  });
+
+  // Return server instance.
+  return this;
+
+}
+
+/**
+ * WebSocket MQ Server Properties.
+ *
+ */
+Object.defineProperties( WebSocket.prototype, {
+  getQueue: {
+    value: function getQueue() {},
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  getQueue2: {
+    value: function getQueue() {},
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+})
+
+/**
+ * WebSocket MQ Constructor Properties.
+ *
+ */
+Object.defineProperties( module.exports = WebSocket, {
+  debug: {
+    value: require( &#x27;debug&#x27; )( &#x27;websocket-mq&#x27; ),
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  createServer: {
+    value: function createServer( options, cb ) {
+      return new WebSocket( options, cb );
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  createProxy: {
+    value: function createProxy( options, cb ) {
+      return new WebSocket( options, cb );
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  createConnection: {
+    value: function createConnection( options, cb ) {
+
+      if (!(this instanceof createConnection)) {
+        return new createConnection( options, cb );
+      }
+
+      var Instance     = this;
+      var validation   = require( &#x27;object-validation&#x27; );
+      var msgpack      = require( &#x27;msgpack&#x27; );
+      var ws           = require( &#x27;ws&#x27; );
+      var extend       = require( &#x27;extend&#x27; );
+
+      // Mixin Settings and EventEmitter
+      require( &#x27;object-settings&#x27; ).mixin( this );
+      require( &#x27;object-emitter&#x27; ).mixin( this );
+
+      options = extend({
+        host: &#x27;localhost&#x27;,
+        port: 92000,
+        origin: options.origin,
+        passphrase: null,
+        pfx: null,
+        key: null,
+        cert: null,
+        ca: null,
+      }, options )
+
+      // Create Client Instance.
+      Instance.Client = new ws.createConnection( &#x27;http://&#x27; + options.host + &#x27;:&#x27; + options.port, {
+        origin: options.origin || options.host,
+        passphrase: options.passphrase,
+        pfx: options.pfx,
+        key: options.key
+      });
+
+      Instance.Client.on( &#x27;open&#x27;, function open() {
+        require( &#x27;object-settings&#x27; ).mixin( this );
+        require( &#x27;object-emitter&#x27; ).mixin( this );
+
+        Instance.emit( &#x27;open&#x27;, null );
+
+      });
+
+      // Handle Client Errors.
+      Instance.Client.on( &#x27;error&#x27;, function error( error ) {
+
+        switch( error.code ) {
+
+          case &#x27;ECONNREFUSED&#x27;: {
+            Instance.emit( &#x27;error.connection_refused&#x27;, new Error( &#x27;ServiceBus client could not connect to server.&#x27; ), this );
+          } break;
+
+        }
+
+        // Expose general error.
+        Instance.emit( &#x27;error&#x27;, error, this );
+
+      });
+
+      // Message from DSB
+      Instance.Client.on( &#x27;message&#x27;, function message( message, options, buffer ) {
+
+        if( message instanceof Buffer ) {
+          message = msgpack.unpack( options.buffer )
+        }
+
+        if( &#x27;string&#x27; === typeof message ) {
+          message = { event: message }
+        }
+
+        // Emit to Root EventEmitter
+        Instance.emit( &#x27;message&#x27;, null, message );
+
+      });
+
+      // Return client instance.
+      return this;
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  }
+})
     </pre>
 </div>
 

@@ -32,6 +32,14 @@
   "scripts": {
   },
   "dependencies" : {
+    "ws": "*",
+    "auto": "*",
+    "pluck": "*",
+    "async": "*",
+    "msgpack": "*",
+    "debug": "*",
+    "object-emitter": "*",
+    "object-settings": "*"
   },
   "devDependencies": {
   }

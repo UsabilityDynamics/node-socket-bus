@@ -4,4 +4,4 @@
  * @author potanin@UD
  * @date 6/18/13
  */
-module.exports = process.env.APP_COVERAGE ? require( './static/lib-cov/websocket-mq' ) : require( './lib/websocket-mq' );
+module.exports = process.env.APP_COVERAGE ? require( './static/lib-cov/index' ) : require( './lib/index' );

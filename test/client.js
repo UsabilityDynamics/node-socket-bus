@@ -9,9 +9,10 @@
  */
 module.exports = {
 
-  'Veneer WebSocket Prototype': {
+  'QSMQ Client': {
 
-    'works': function( done ) {
+    'can connect to server.': function( done ) {
+
       var WebSocket   = require( '../' );
       var auto        = require( 'auto' );
 
@@ -30,24 +31,25 @@ module.exports = {
         });
 
         client.on( 'open', function( error, client ) {
-          // console.log( this.event, error, typeof client );
+          // console.log( 'client', this.event, error, typeof client );
         })
 
+        // @todo First argument is the message.
         client.on( 'message', function( error, data ) {
-          // console.log( this.event, error, data );
+          // console.log( 'client', this.event, !!error, typeof data );
+          // console.log( error );
           done();
         });
 
       });
 
       server.on( 'connection', function( error, data ) {
-        // console.log( this.event, error, typeof data );
+        // console.log( 'server', this.event, !!error, typeof data );
       });
 
       server.on( 'message', function( error, data ) {
-        // console.log( this.event, error, typeof data );
+        // console.log( 'server', this.event, !!error, typeof data );
       });
-
 
     }
 

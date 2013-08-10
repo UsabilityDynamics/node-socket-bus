@@ -1,0 +1,202 @@
+{
+    "project": {
+        "name": "WebSocket MQ",
+        "description": "",
+        "version": "0.0.1",
+        "url": "https://github.com/UsabilityDynamics/websocket-mq/",
+        "logo": "http://a3d72a45d111006ec192-ec5b80a12b0b09b4d52373336afb4254.r80.cf1.rackcdn.com/usability-dynamics.png"
+    },
+    "files": {
+        "lib/client.js": {
+            "name": "lib/client.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/utility.js": {
+            "name": "lib/utility.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/websocket-mq.js": {
+            "name": "lib/websocket-mq.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {},
+    "classitems": [
+        {
+            "file": "lib/client.js",
+            "line": 1,
+            "type": "{*}",
+            "class": ""
+        },
+        {
+            "file": "lib/client.js",
+            "line": 81,
+            "description": "WebSocket MQ Server Properties.",
+            "class": ""
+        },
+        {
+            "file": "lib/client.js",
+            "line": 112,
+            "description": "WebSocket MQ Constructor Properties.",
+            "class": ""
+        },
+        {
+            "file": "lib/client.js",
+            "line": 148,
+            "description": "Create WebSocket Client.",
+            "params": [
+                {
+                    "name": "options",
+                    "description": ""
+                },
+                {
+                    "name": "cb",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Client"
+            },
+            "class": ""
+        },
+        {
+            "file": "lib/client.js",
+            "line": 163,
+            "description": "Create WebSocket Client.",
+            "params": [
+                {
+                    "name": "options",
+                    "description": ""
+                },
+                {
+                    "name": "cb",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Client"
+            },
+            "class": ""
+        },
+        {
+            "file": "lib/utility.js",
+            "line": 1,
+            "description": "Helper Utility for Abstract",
+            "example": [
+                "\n\n   // Select specific methods to load\n   var my_tools = WebSocketMQ.utility( 'if', 'extend', 'flatten', 'unwatch', 'watch' );"
+            ],
+            "author": "potanin@UD",
+            "date": "6/17/13",
+            "class": ""
+        },
+        {
+            "file": "lib/websocket-mq.js",
+            "line": 1,
+            "description": "### Events\n - connection\n - connection.success\n - connection.error",
+            "type": "{*}",
+            "class": ""
+        },
+        {
+            "file": "lib/websocket-mq.js",
+            "line": 117,
+            "description": "WebSocket MQ Server Properties.",
+            "class": ""
+        },
+        {
+            "file": "lib/websocket-mq.js",
+            "line": 123,
+            "description": "Configure Client\n\nMethod executed when connection is ready.\nUsage and semantics emulating Express.",
+            "params": [
+                {
+                    "name": "env",
+                    "description": ""
+                },
+                {
+                    "name": "fn",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": ""
+        },
+        {
+            "file": "lib/websocket-mq.js",
+            "line": 180,
+            "description": "WebSocket MQ Constructor Properties.",
+            "class": ""
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/client.js:148"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/client.js:163"
+        },
+        {
+            "message": "unknown tag: date",
+            "line": " lib/utility.js:1"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/websocket-mq.js:123"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/client.js:1"
+        },
+        {
+            "message": "Missing item type\nWebSocket MQ Server Properties.",
+            "line": " lib/client.js:81"
+        },
+        {
+            "message": "Missing item type\nWebSocket MQ Constructor Properties.",
+            "line": " lib/client.js:112"
+        },
+        {
+            "message": "Missing item type\nCreate WebSocket Client.",
+            "line": " lib/client.js:148"
+        },
+        {
+            "message": "Missing item type\nCreate WebSocket Client.",
+            "line": " lib/client.js:163"
+        },
+        {
+            "message": "Missing item type\nHelper Utility for Abstract",
+            "line": " lib/utility.js:1"
+        },
+        {
+            "message": "Missing item type\n### Events\n - connection\n - connection.success\n - connection.error",
+            "line": " lib/websocket-mq.js:1"
+        },
+        {
+            "message": "Missing item type\nWebSocket MQ Server Properties.",
+            "line": " lib/websocket-mq.js:117"
+        },
+        {
+            "message": "Missing item type\nConfigure Client\n\nMethod executed when connection is ready.\nUsage and semantics emulating Express.",
+            "line": " lib/websocket-mq.js:123"
+        },
+        {
+            "message": "Missing item type\nWebSocket MQ Constructor Properties.",
+            "line": " lib/websocket-mq.js:180"
+        }
+    ]
+}

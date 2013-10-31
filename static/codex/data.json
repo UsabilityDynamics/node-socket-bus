@@ -3,7 +3,7 @@
         "name": "socket-bus",
         "description": "WebSocket-driven service bus.",
         "version": "0.1.0",
-        "url": "https://github.com/usabilitydynamics/socket-bus",
+        "url": "https://github.com/UsabilityDynamics/socket-bus",
         "logo": "http://media.usabilitydynamics.com/logo.png"
     },
     "files": {

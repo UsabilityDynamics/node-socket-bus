@@ -2,7 +2,7 @@
   "name": "socket-bus",
   "version": "0.1.0",
   "description": "WebSocket-driven service bus.",
-  "homepage": "https://github.com/usabilitydynamics/node-socket-bus",
+  "homepage": "https://github.com/UsabilityDynamics/node-socket-bus",
   "keywords": [
     "ws", "web-socket", "amqp", "service-bus", "queue"
   ],
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/usabilitydynamics/node-socket-bus.git"
+    "url": "https://github.com/UsabilityDynamics/node-socket-bus.git"
   },
   "main": "index",
   "preferGlobal": false,

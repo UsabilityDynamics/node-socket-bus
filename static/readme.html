@@ -1,0 +1,213 @@
+<!DOCTYPE  html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>doc</title>
+    <style>
+      /*github.com style (c) Vasily Polovnyov <vast@whiteants.net>*/
+      pre code {
+        display: block; padding: 0.5em;
+        color: #333;
+        background: #f8f8ff
+      }
+      pre .comment,
+      pre .template_comment,
+      pre .diff .header,
+      pre .javadoc {
+        color: #998;
+        font-style: italic
+      }
+      pre .keyword,
+      pre .css .rule .keyword,
+      pre .winutils,
+      pre .javascript .title,
+      pre .nginx .title,
+      pre .subst,
+      pre .request,
+      pre .status {
+        color: #333;
+        font-weight: bold
+      }
+      pre .number,
+      pre .hexcolor,
+      pre .ruby .constant {
+        color: #099;
+      }
+      pre .string,
+      pre .tag .value,
+      pre .phpdoc,
+      pre .tex .formula {
+        color: #d14
+      }
+      pre .title,
+      pre .id {
+        color: #900;
+        font-weight: bold
+      }
+      pre .javascript .title,
+      pre .lisp .title,
+      pre .clojure .title,
+      pre .subst {
+        font-weight: normal
+      }
+      pre .class .title,
+      pre .haskell .type,
+      pre .vhdl .literal,
+      pre .tex .command {
+        color: #458;
+        font-weight: bold
+      }
+      pre .tag,
+      pre .tag .title,
+      pre .rules .property,
+      pre .django .tag .keyword {
+        color: #000080;
+        font-weight: normal
+      }
+      pre .attribute,
+      pre .variable,
+      pre .lisp .body {
+        color: #008080
+      }
+      pre .regexp {
+        color: #009926
+      }
+      pre .class {
+        color: #458;
+        font-weight: bold
+      }
+      pre .symbol,
+      pre .ruby .symbol .string,
+      pre .lisp .keyword,
+      pre .tex .special,
+      pre .prompt {
+        color: #990073
+      }
+      pre .built_in,
+      pre .lisp .title,
+      pre .clojure .built_in {
+        color: #0086b3
+      }
+      pre .preprocessor,
+      pre .pi,
+      pre .doctype,
+      pre .shebang,
+      pre .cdata {
+        color: #999;
+        font-weight: bold
+      }
+      pre .deletion {
+        background: #fdd
+      }
+      pre .addition {
+        background: #dfd
+      }
+      pre .diff .change {
+        background: #0086b3
+      }
+      pre .chunk {
+        color: #aaa
+      }
+    </style>
+  </head>
+  <body>  
+    <h2>Overview</h2>
+<p>This module is not intended to be a high-traffic message-queue and distribution hub.
+It is intended to provide cross-process event distribution that can later be extended to utilize a third-party MQ system as well.</p>
+<ul>
+<li>WebSocket powered Message Distribution.</li>
+<li>Bridges the gap between the basic EventEmitter and advanced MQ systems.</li>
+<li>Peristen queue and message handling when using together with Rabbit module and RabbitMQ.</li>
+<li>Messages (events) are published (emitted) to channels, which can be predefined in package.json.</li>
+<li>Certain important messages are persistent and will be held for delivery to subscribers. This should be a channel-wide setting.</li>
+<li>With certain messages receipt-acknowledgement is important to the publisher in which case consumers&#39; receipt will be tracked.</li>
+<li>When distributing work (RPC) a callback will be necessary to deliver a result back to the client.</li>
+</ul>
+<h2>Channel Types</h2>
+<p>All channels support &quot;topics&quot; via the use of wilrcards and hash tags.
+Mesage peristency can be configured on a message-by-message basis.</p>
+<ul>
+<li>req-rep - Each message is delivered to eactly one worker, commonly known as a work-queue.</li>
+<li>push-pull - Delivery of messages will be queued during disconnects and sent again upon the next connection.</li>
+<li>pub-sub - Messages are delivered to multiple consumers.</li>
+</ul>
+<h2>Uage</h2>
+<p>  SocketBus.bind({
+    identity: &#39;some-service&#39;,
+    port: 5000,
+    host: &#39;localhost&#39;
+  });</p>
+<p>  SocketBus.channel( &#39;updates.important&#39;, {
+    persistent: true,
+    acknowledge: true
+  });</p>
+<p>  SocketBus.publish( &#39;user.register&#39;, {
+    name: &quot;John&quot;,
+    address: &quot;United States&quot;
+  }, callback );</p>
+<p>  SocketBus.publish( &#39;case-vote&#39;, {
+    name: &quot;tobi&quot;,
+    vote: 30
+  });</p>
+<p>  SocketBus.subscribe( &#39;important.events&#39;, function( data ) {
+    console.log( &#39;%s signed in&#39;, user.name );
+  });</p>
+<p>  SocketBus.subscribe( &#39;rpc.*&#39;, function( data ) {
+    console.log( &#39;%s signed in&#39;, user.name );
+  });</p>
+<p>  SocketBus.subscribe( &#39;rpc.queue&#39;, function( workload ) {
+    this.topic; this.done();
+  });</p>
+<p>  // Remove subscription, only necessary when peristency was earlier enabled.
+  SocketBus.unsubscribe( &#39;rpc.*&#39; );</p>
+<h2>Advanced Usage</h2>
+<p>  // Configure Settings.
+  SocketBus.set( &#39;defaults&#39;, {
+    name: &#39;john&#39;,
+    timeout: 5000
+  });</p>
+<p>  // Configure Advanced Channel
+  SocketBus.channel( &#39;rpc.queue&#39;, {
+    type: &#39;json&#39;,
+    delivery: &#39;round-robin&#39;,
+    persist: true
+    deliveryMode: 2,
+  });</p>
+<p>  // Publish Advanced Message
+  SocketBus.publish({
+    id: 100,
+    type: &#39;validation&#39;,
+    timeout: 4000
+  });</p>
+<p>  // Write to console.
+  SocketBus.subscribe( &#39;job.load&#39;, loadWorker );
+  SocketBus.subscribe( &#39;job.analyze&#39;, analysisWorker );
+  SocketBus.subscribe( &#39;job.print&#39;, printWorker );</p>
+<p>  // Connect to other MQ providers
+  SocketBus.bind({
+    port: 9600,
+    certificate: &#39;../public.crt&#39;
+  });</p>
+<h2>License</h2>
+<p>(The MIT License)</p>
+<p>Copyright (c) 2013 Usability Dynamics, Inc. &lt;info@usabilitydynamics.com&gt;</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&#39;Software&#39;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &#39;AS IS&#39;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+  </body>
+</html>

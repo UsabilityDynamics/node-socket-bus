@@ -1,9 +1,9 @@
 {
     "project": {
-        "name": "WebSocket MQ",
-        "description": "",
-        "version": "0.0.1",
-        "url": "https://github.com/UsabilityDynamics/websocket-mq/",
+        "name": "socket-bus",
+        "description": "WebSocket-driven service bus.",
+        "version": "0.1.0",
+        "url": "https://github.com/usabilitydynamics/socket-bus",
         "logo": "http://media.usabilitydynamics.com/logo.png"
     },
     "files": {
@@ -238,7 +238,27 @@
         },
         {
             "file": "lib/socket-bus.js",
-            "line": 78,
+            "line": 53,
+            "description": "Create WebSocket Client.",
+            "params": [
+                {
+                    "name": "options",
+                    "description": ""
+                },
+                {
+                    "name": "cb",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Client"
+            },
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/socket-bus.js",
+            "line": 86,
             "description": "Configure",
             "params": [
                 {
@@ -258,47 +278,23 @@
         },
         {
             "file": "lib/socket-bus.js",
-            "line": 108,
+            "line": 124,
             "description": "Constructor Properties.",
             "class": "SocketBus"
         },
         {
             "file": "lib/socket-bus.js",
-            "line": 132,
-            "description": "Create WebSocket Server.",
+            "line": 130,
+            "description": "Create New Instance",
             "params": [
                 {
                     "name": "options",
-                    "description": ""
-                },
-                {
-                    "name": "cb",
                     "description": ""
                 }
             ],
             "return": {
                 "description": "",
-                "type": "Client"
-            },
-            "class": "SocketBus"
-        },
-        {
-            "file": "lib/socket-bus.js",
-            "line": 145,
-            "description": "Create WebSocket Client.",
-            "params": [
-                {
-                    "name": "options",
-                    "description": ""
-                },
-                {
-                    "name": "cb",
-                    "description": ""
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "Client"
+                "type": "SocketBus"
             },
             "class": "SocketBus"
         }
@@ -326,15 +322,15 @@
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/socket-bus.js:78"
+            "line": " lib/socket-bus.js:53"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/socket-bus.js:132"
+            "line": " lib/socket-bus.js:86"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/socket-bus.js:145"
+            "line": " lib/socket-bus.js:130"
         },
         {
             "message": "Missing item type\nWebSocket Client\n\n### Events\n- error",
@@ -393,20 +389,20 @@
             "line": " lib/socket-bus.js:42"
         },
         {
+            "message": "Missing item type\nCreate WebSocket Client.",
+            "line": " lib/socket-bus.js:53"
+        },
+        {
             "message": "Missing item type\nConfigure",
-            "line": " lib/socket-bus.js:78"
+            "line": " lib/socket-bus.js:86"
         },
         {
             "message": "Missing item type\nConstructor Properties.",
-            "line": " lib/socket-bus.js:108"
+            "line": " lib/socket-bus.js:124"
         },
         {
-            "message": "Missing item type\nCreate WebSocket Server.",
-            "line": " lib/socket-bus.js:132"
-        },
-        {
-            "message": "Missing item type\nCreate WebSocket Client.",
-            "line": " lib/socket-bus.js:145"
+            "message": "Missing item type\nCreate New Instance",
+            "line": " lib/socket-bus.js:130"
         }
     ]
 }

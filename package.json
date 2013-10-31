@@ -47,6 +47,7 @@
     "grunt-contrib-watch": "*",
     "grunt-contrib-yuidoc": "*",
     "grunt-contrib-clean": "*",
+    "grunt-jscoverage": "0.0.3",
     "should": "*",
     "rabbit": "*",
     "mocha": "*"

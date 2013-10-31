@@ -1,0 +1,412 @@
+{
+    "project": {
+        "name": "WebSocket MQ",
+        "description": "",
+        "version": "0.0.1",
+        "url": "https://github.com/UsabilityDynamics/websocket-mq/",
+        "logo": "http://media.usabilitydynamics.com/logo.png"
+    },
+    "files": {
+        "lib/client.js": {
+            "name": "lib/client.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/server.js": {
+            "name": "lib/server.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/session.js": {
+            "name": "lib/session.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/socket-bus.js": {
+            "name": "lib/socket-bus.js",
+            "modules": {},
+            "classes": {
+                "SocketBus": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "SocketBus": {
+            "name": "SocketBus",
+            "shortname": "SocketBus",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/socket-bus.js",
+            "line": 1,
+            "description": "SocketBus Loader",
+            "params": [
+                {
+                    "name": "settings",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "author": "potanin@UD",
+            "type": "{*}"
+        }
+    },
+    "classitems": [
+        {
+            "file": "lib/client.js",
+            "line": 1,
+            "description": "WebSocket Client\n\n### Events\n- error",
+            "params": [
+                {
+                    "name": "settings",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "type": "{*}",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 84,
+            "description": "Instance Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 90,
+            "description": "Configure Client\n\nMethod executed when connection is open.",
+            "params": [
+                {
+                    "name": "env",
+                    "description": ""
+                },
+                {
+                    "name": "fn",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 250,
+            "description": "Constructor Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 256,
+            "description": "Create WebSocket Client.",
+            "params": [
+                {
+                    "name": "settings",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Client"
+            },
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/server.js",
+            "line": 1,
+            "description": "WebSocket Server\n\n### Events\n- connection\n- connection.success\n- connection.error",
+            "params": [
+                {
+                    "name": "settings",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "type": "{*}",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/server.js",
+            "line": 80,
+            "description": "Instance Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/server.js",
+            "line": 86,
+            "description": "Configure Server\n\nMethod executed when connection is ready.\nUsage and semantics emulating Express.",
+            "params": [
+                {
+                    "name": "env",
+                    "description": ""
+                },
+                {
+                    "name": "fn",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/server.js",
+            "line": 210,
+            "description": "Constructor Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/session.js",
+            "line": 1,
+            "description": "Session Builder",
+            "params": [
+                {
+                    "name": "client",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Session"
+            },
+            "is_constructor": 1,
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/session.js",
+            "line": 55,
+            "description": "Instance Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/session.js",
+            "line": 61,
+            "description": "Configure Session\n\nMethod executed when connection is ready.\nUsage and semantics emulating Express.",
+            "params": [
+                {
+                    "name": "env",
+                    "description": ""
+                },
+                {
+                    "name": "fn",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/session.js",
+            "line": 176,
+            "description": "Constructor Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/socket-bus.js",
+            "line": 42,
+            "description": "Instance Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/socket-bus.js",
+            "line": 78,
+            "description": "Configure",
+            "params": [
+                {
+                    "name": "env",
+                    "description": ""
+                },
+                {
+                    "name": "fn",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/socket-bus.js",
+            "line": 108,
+            "description": "Constructor Properties.",
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/socket-bus.js",
+            "line": 132,
+            "description": "Create WebSocket Server.",
+            "params": [
+                {
+                    "name": "options",
+                    "description": ""
+                },
+                {
+                    "name": "cb",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Client"
+            },
+            "class": "SocketBus"
+        },
+        {
+            "file": "lib/socket-bus.js",
+            "line": 145,
+            "description": "Create WebSocket Client.",
+            "params": [
+                {
+                    "name": "options",
+                    "description": ""
+                },
+                {
+                    "name": "cb",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Client"
+            },
+            "class": "SocketBus"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/client.js:90"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/client.js:256"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/server.js:86"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/session.js:1"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/session.js:61"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/socket-bus.js:78"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/socket-bus.js:132"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/socket-bus.js:145"
+        },
+        {
+            "message": "Missing item type\nWebSocket Client\n\n### Events\n- error",
+            "line": " lib/client.js:1"
+        },
+        {
+            "message": "Missing item type\nInstance Properties.",
+            "line": " lib/client.js:84"
+        },
+        {
+            "message": "Missing item type\nConfigure Client\n\nMethod executed when connection is open.",
+            "line": " lib/client.js:90"
+        },
+        {
+            "message": "Missing item type\nConstructor Properties.",
+            "line": " lib/client.js:250"
+        },
+        {
+            "message": "Missing item type\nCreate WebSocket Client.",
+            "line": " lib/client.js:256"
+        },
+        {
+            "message": "Missing item type\nWebSocket Server\n\n### Events\n- connection\n- connection.success\n- connection.error",
+            "line": " lib/server.js:1"
+        },
+        {
+            "message": "Missing item type\nInstance Properties.",
+            "line": " lib/server.js:80"
+        },
+        {
+            "message": "Missing item type\nConfigure Server\n\nMethod executed when connection is ready.\nUsage and semantics emulating Express.",
+            "line": " lib/server.js:86"
+        },
+        {
+            "message": "Missing item type\nConstructor Properties.",
+            "line": " lib/server.js:210"
+        },
+        {
+            "message": "Missing item type\nSession Builder",
+            "line": " lib/session.js:1"
+        },
+        {
+            "message": "Missing item type\nInstance Properties.",
+            "line": " lib/session.js:55"
+        },
+        {
+            "message": "Missing item type\nConfigure Session\n\nMethod executed when connection is ready.\nUsage and semantics emulating Express.",
+            "line": " lib/session.js:61"
+        },
+        {
+            "message": "Missing item type\nConstructor Properties.",
+            "line": " lib/session.js:176"
+        },
+        {
+            "message": "Missing item type\nInstance Properties.",
+            "line": " lib/socket-bus.js:42"
+        },
+        {
+            "message": "Missing item type\nConfigure",
+            "line": " lib/socket-bus.js:78"
+        },
+        {
+            "message": "Missing item type\nConstructor Properties.",
+            "line": " lib/socket-bus.js:108"
+        },
+        {
+            "message": "Missing item type\nCreate WebSocket Server.",
+            "line": " lib/socket-bus.js:132"
+        },
+        {
+            "message": "Missing item type\nCreate WebSocket Client.",
+            "line": " lib/socket-bus.js:145"
+        }
+    ]
+}

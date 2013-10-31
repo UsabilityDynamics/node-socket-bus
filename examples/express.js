@@ -14,16 +14,6 @@ app.configure( function configure() {
   this.use( this.router );
   this.use( express.errorHandler() );
 
-
-
-
-
-
-
-
-
-
-
   // Start Service
   this.server = this.listen( 3000, '127.0.0.1' ).on( 'error', console.error );
 

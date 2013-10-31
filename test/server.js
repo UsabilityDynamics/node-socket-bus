@@ -1,7 +1,7 @@
 /**
  * Mocha Test for daemon
  *
- * mocha test/web-socket.js --reporter list --ui exports --watch
+ * mocha test/server.js --reporter list --ui exports --watch
  *
  * @author potanin@UD
  * @date 7/16/13
@@ -9,12 +9,14 @@
  */
 module.exports = {
 
-  'WSMQ Client': {
+  'WSMQ Server': {
 
-    'can connect to server.': function( done ) {
+    'can bind to an ephermal port.': function( done ) {
 
-      var Server    = require( '../' );
-      var auto      = require( 'auto' );
+      var Server   = require( '../' );
+      var auto     = require( 'auto' );
+
+      return done();
 
       var server = Server.createServer({
         path: '/',

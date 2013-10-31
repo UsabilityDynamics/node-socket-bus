@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/client.js - WebSocket MQ</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="http://media.usabilitydynamics.com/logo.png" title="WebSocket MQ"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/SocketBus.html">SocketBus</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: lib/client.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * WebSocket Client
+ *
+ * ### Events
+ * - error
+ *
+ * @param settings {Object}
+ * @param callback {Function}
+ *
+ * @type {*}
+ */
+function Client( settings ) {
+
+  // Make sure context is correct otherwise we could screw up the global scope.
+  if (!(this instanceof Client)) {
+    return new Client( settings );
+  }
+
+  // Mixin Settings and EventEmitter
+  require( &#x27;object-settings&#x27; ).mixin( this );
+  require( &#x27;object-emitter&#x27; ).mixin( this );
+
+  // Set Client Settings.
+  this.set({
+    settings: Client.utility.defaults( settings, {
+      host: &#x27;localhost&#x27;,
+      port: 92000,
+      origin: &#x27;&#x27;,
+      passphrase: null,
+      pfx: null,
+      key: null,
+      cert: null,
+      ca: null,
+    }),
+    identity: String( process.pid )
+  });
+
+  // Create Client instance.
+  Object.defineProperties( this, {
+    Client: {
+      value: require( &#x27;ws&#x27; ).createConnection( &#x27;http://&#x27; + this.get( &#x27;settings.host&#x27; ) + &#x27;:&#x27; + this.get( &#x27;settings.port&#x27; ), {
+        origin: this.get( &#x27;settings.origin&#x27; ) || this.get( &#x27;settings.origin&#x27; ),
+        passphrase: this.get( &#x27;settings.passphrase&#x27; ),
+        pfx: this.get( &#x27;settings.pfx&#x27; ),
+        key: this.get( &#x27;settings.key&#x27; )
+      }),
+      writable: true,
+      enumerable: false,
+      configurable: true
+    },
+    _events: {
+      value: this._events,
+      configurable: true,
+      writable: true,
+      enumerable: false
+    },
+    event: {
+      configurable: true,
+      enumerable: true,
+      writable: true
+    }
+  });
+
+  setTimeout( function() {
+
+    this.send( Date.now().toString(), {mask: true} )
+
+  }.bind( this.Client ), 100 )
+
+
+  // Event Handlers.
+  this.Client.on( &#x27;open&#x27;, this.open.bind( this ) );
+  this.Client.on( &#x27;close&#x27;, this.close.bind( this ) );
+  this.Client.on( &#x27;message&#x27;, this.message.bind( this ) );
+  this.Client.on( &#x27;ping&#x27;, this.ping.bind( this ) );
+  this.Client.on( &#x27;error&#x27;, this.error.bind( this ) );
+  this.Client.on( &#x27;data&#x27;, this.data.bind( this ) );
+
+  // @chainable
+  return this;
+
+}
+
+/**
+ * Instance Properties.
+ *
+ */
+Object.defineProperties( Client.prototype, {
+  configure: {
+    /**
+     * Configure Client
+     *
+     * Method executed when connection is open.
+     *
+     * @param env
+     * @param fn
+     * @returns {*}
+     */
+    value: function configure( env, fn ) {
+      var envs      = &#x27;all&#x27;;
+      var args      = [].slice.call(arguments);
+
+      fn = args.pop();
+
+      if( args.length ) {
+        envs = args;
+      }
+
+      if( &#x27;all&#x27; == envs || ~envs.indexOf( this.get( &#x27;environment&#x27; ) ) ) {
+        this.on( &#x27;open&#x27;, fn.bind( this, this ) );
+      }
+
+      return this;
+
+    },
+    enumerable: true,
+    writable: true,
+    configurable: true
+  },
+  open: {
+    value: function open() {
+      Client.debug( &#x27;this.open&#x27; );
+
+
+      // this.Client
+      // Emit
+      this.emit( &#x27;open&#x27;, null, this.Client._socket, this.Client );
+
+      // @chainable
+      return this;
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  close: {
+    value: function close( ) {
+      Client.debug( &#x27;this.close&#x27;, arguments );
+
+      // Emit
+      this.emit( &#x27;close&#x27;, null, this.Client );
+
+      // @chainable
+      return this;
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  message: {
+    value: function message( message, settings, buffer  ) {
+      Client.debug( &#x27;this.message&#x27;, message, settings, buffer );
+
+      if( message instanceof Buffer ) {
+        // message = msgpack.unpack( settings.buffer )
+      }
+
+      if( &#x27;string&#x27; === typeof message ) {
+        /// message = { event: message }
+      }
+
+      // Emit to Root EventEmitter
+      this.emit( &#x27;message&#x27;, null, message, settings, buffer );
+
+      // @chainable
+      return this;
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  data: {
+    value: function data( data ) {
+      Client.debug( &#x27;this.data&#x27;, arguments );
+
+      // Emit
+      this.emit( &#x27;data&#x27;, null, data, this.Client );
+
+      // @chainable
+      return this;
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  ping: {
+    value: function ping( data, flags ) {
+      Client.debug( &#x27;this.ping&#x27;, data, flags );
+
+      // Emit
+      this.emit( &#x27;ping&#x27;, null, data, flaws, this.Client );
+
+      // @chainable
+      return this;
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  error: {
+    value: function error( error ) {
+
+      // Handle known errors.
+      switch( error.code ) {
+
+        case &#x27;ECONNREFUSED&#x27;: {
+          this.emit( &#x27;error.connection_refused&#x27;, new Error( &#x27;Client could not connect to server.&#x27; ), this.Server );
+        } break;
+
+      }
+
+      // Emit
+      this.emit( &#x27;error&#x27;, error, this.Client );
+
+      // @chainable
+      return this;
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  },
+  send: {
+    value: function send( data, options, cb ) {
+
+      var WebSocket = this.Client;
+      // console.log( &#x27;this.readyState&#x27;, this.Client.readyState );
+      // console.log( &#x27;WebSocket.OPEN&#x27;, WebSocket.OPEN );
+
+      //console.log( this.Client._sender );
+      //return;
+      //this.Client._sender.send(data, options, cb);
+
+      //console.log( this.Client.readyState );
+      // require( &#x27;ws&#x27; ).prototype.send.bind( this.Client )( &#x27;asdf&#x27; );
+      // require( &#x27;ws&#x27; ).prototype.send.call( this.Client, data, options, function sent( error ) {});
+
+    },
+    enumerable: true,
+    configurable: true,
+    writable: true
+  }
+});
+
+/**
+ * Constructor Properties.
+ *
+ */
+Object.defineProperties( module.exports = Client, {
+  create: {
+    /**
+     * Create WebSocket Client.
+     *
+     * @param settings
+     *
+     * @returns {Client}
+     */
+    value: function create( settings ) {
+      return new Client( settings );
+    },
+    enumerable: false,
+    configurable: true,
+    writable: true
+  },
+  debug: {
+    value: require( &#x27;debug&#x27; )( &#x27;wsmq:client&#x27; ),
+    enumerable: false,
+    configurable: true,
+    writable: true
+  },
+  utility: {
+    value: {
+      defaults: require( &#x27;abstract&#x27; ).utility.defaults,
+      extend: require( &#x27;abstract&#x27; ).utility.extend,
+    },
+    configurable: true,
+    writable: true
+  }
+})
+
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,9 +1,10 @@
 {
-  "name": "websocket-mq",
-  "version": "0.0.1",
-  "description": "",
+  "name": "socket-bus",
+  "version": "0.1.0",
+  "description": "WebSocket-driven service bus.",
+  "homepage": "https://github.com/usabilitydynamics/socket-bus",
   "keywords": [
-   
+    "ws", "web-socket", "amqp", "service-bus", "queue"
   ],
   "license": "MIT",
   "copyright" : "Copyright (c) 2013 Usability Dynamics, Inc.",
@@ -12,10 +13,10 @@
     "email": "info@usabilitydynamics.com",
     "url": "http://usabilitydynamics.com"
   },
-  "contributors": [ 
+  "contributors": [
     {
-      "name": "Ivan McCarthy",
-      "email": "ivan.mccarthy@usabilitydynamics.com",
+      "name": "Andy Potanin",
+      "email": "andy.potanin@usabilitydynamics.com",
       "url": "http://usabilitydynamics.com"
     }
   ],
@@ -25,15 +26,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodejitsu/websocket-mq.git"
+    "url": "https://github.com/usabilitydynamics/socket-bus.git"
   },
   "main": "index",
   "preferGlobal": false,
-  "scripts": {
-  },
   "dependencies" : {
     "ws": "*",
     "auto": "*",
+    "abstract": "*",
     "lodash": "*",
     "pluck": "*",
     "async": "*",
@@ -43,5 +43,12 @@
     "object-settings": "*"
   },
   "devDependencies": {
+    "grunt-markdown": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-yuidoc": "*",
+    "grunt-contrib-clean": "*",
+    "should": "*",
+    "rabbit": "*",
+    "mocha": "*"
   }
 }

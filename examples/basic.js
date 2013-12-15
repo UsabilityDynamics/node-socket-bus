@@ -1,4 +1,4 @@
-var wsmq = require( '../' );
+var wsmq = require( '.' );
 
 
 // Server Bound.

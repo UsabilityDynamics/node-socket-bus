@@ -1,4 +1,4 @@
-var SocketBus = require( '../' );
+var SocketBus = require( '.' );
 
 // Allow access to our queues
 SocketBus.bind( 'localhos:9000' );

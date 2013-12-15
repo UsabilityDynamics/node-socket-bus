@@ -13,7 +13,7 @@ module.exports = {
 
     'can bind to an ephermal port.': function( done ) {
 
-      var Server   = require( '../' );
+      var Server   = require( '.' );
       var auto     = require( 'auto' );
 
       return done();

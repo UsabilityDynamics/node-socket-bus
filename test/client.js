@@ -13,7 +13,7 @@ module.exports = {
 
     'can connect to server.': function( done ) {
 
-      var Server    = require( '../' );
+      var Server    = require( '.' );
       var auto      = require( 'auto' );
 
       var server = Server.createServer({

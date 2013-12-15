@@ -13,7 +13,7 @@ module.exports = {
 
     'works': function( ) {
 
-      var WSMQ   = require( '../' );
+      var WSMQ   = require( '.' );
 
       // Constructor.
       WSMQ.should.have.property( 'debug' );
